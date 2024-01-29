@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="restAPIdemo">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/restAPIdemo.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
