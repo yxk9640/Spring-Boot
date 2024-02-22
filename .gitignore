@@ -1,1 +1,41 @@
 **/.DS_Store
+
+/target/
+.gradle
+
+.DS_Store
+**/.DS_Store
+
+# The following files are automatically generated/updated
+node_modules/
+frontend/generated/
+pnpmfile.js
+.npmrc
+webpack.generated.js
+vite.generated.ts
+
+# Eclipse and STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
