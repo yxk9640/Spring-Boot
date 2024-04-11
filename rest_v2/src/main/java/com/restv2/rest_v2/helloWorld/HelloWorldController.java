@@ -1,4 +1,4 @@
-package com.restv2.rest_v2;
+package com.restv2.rest_v2.helloWorld;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

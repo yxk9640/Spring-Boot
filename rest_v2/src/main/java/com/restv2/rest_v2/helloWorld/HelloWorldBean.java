@@ -1,4 +1,4 @@
-package com.restv2.rest_v2;
+package com.restv2.rest_v2.helloWorld;
 
 public class HelloWorldBean {
     private  String message;
