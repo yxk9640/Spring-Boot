@@ -1,7 +1,6 @@
 package com.restv2.rest_v2.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -10,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class CustomerResource {
+public class CustomerResourceController {
 
     @Autowired
     private CustDAOService service;
@@ -26,7 +25,6 @@ public class CustomerResource {
         if ( oneCustomer == null)
         {
             throw new CustomerNotFoundException("id-"+ id);
-
         }
         return oneCustomer;
     }
@@ -44,8 +42,6 @@ public class CustomerResource {
                 .fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(newSavedCustomer.getId()).toUri();
-
         return ResponseEntity.created(location).build();
-
     }
 }
