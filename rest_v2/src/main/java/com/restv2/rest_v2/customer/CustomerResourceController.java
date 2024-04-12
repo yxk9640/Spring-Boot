@@ -44,4 +44,14 @@ public class CustomerResourceController {
                 .buildAndExpand(newSavedCustomer.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/customers/{id}")
+    public void deleteCustomer(@PathVariable int id){
+        Customer oneCustomer = service.deleteById(id);
+        if ( oneCustomer == null)
+        {
+            throw new CustomerNotFoundException("id-"+ id);
+        }
+    }
+
 }

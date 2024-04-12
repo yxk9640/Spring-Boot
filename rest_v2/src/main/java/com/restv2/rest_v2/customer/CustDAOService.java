@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @Component
@@ -44,5 +45,21 @@ public class CustDAOService {
                 return cust;
         }
        return null;
+    }
+
+    public Customer deleteById(int id){
+
+//        cannot modify the list while searching so
+//        we need one more array or we can use iterator
+        Iterator<Customer> iterator = customers.iterator();
+        while ( iterator.hasNext()){
+            Customer customer = iterator.next();
+            if (customer.getId() == id){
+                iterator.remove();
+                return customer;
+            }
+
+        }
+        return null;
     }
 }
