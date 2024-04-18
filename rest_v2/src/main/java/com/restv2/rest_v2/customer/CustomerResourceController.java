@@ -1,5 +1,6 @@
 package com.restv2.rest_v2.customer;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class CustomerResourceController {
 //    input - deatils of customer
 //    out - Creadted & return created URI
     @PostMapping("/customers")
-    public ResponseEntity<Object> createCustomer(@RequestBody Customer customer){
+    public ResponseEntity<Object> createCustomer(@Valid @RequestBody Customer customer){
         Customer newSavedCustomer = service.save(customer);
         // create a url to show the status
 

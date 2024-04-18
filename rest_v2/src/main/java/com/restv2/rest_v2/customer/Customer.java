@@ -1,10 +1,16 @@
 package com.restv2.rest_v2.customer;
 
+
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 
 public class Customer {
     private Integer id;
+    @Size(min = 2, message = "Name should be more than 2 characters")
     private String name;
+    @Past
     private Date birthDate;
 
     protected Customer() {
