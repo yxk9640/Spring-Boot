@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class CustomerResource {
+public class CustomerResourceController {
 
     @Autowired
     private CustDAOService service;
@@ -44,4 +44,14 @@ public class CustomerResource {
                 .buildAndExpand(newSavedCustomer.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @DeleteMapping("/customers/{id}")
+    public void deleteCustomer(@PathVariable int id){
+        Customer oneCustomer = service.deleteById(id);
+        if ( oneCustomer == null)
+        {
+            throw new CustomerNotFoundException("id-"+ id);
+        }
+    }
+
 }
