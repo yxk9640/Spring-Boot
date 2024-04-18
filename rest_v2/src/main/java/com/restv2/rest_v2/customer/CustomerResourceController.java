@@ -1,7 +1,12 @@
 package com.restv2.rest_v2.customer;
 
+import org.springframework.hateoas.Link;
+
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -21,13 +26,26 @@ public class CustomerResourceController {
     }
 
     @GetMapping("/customers/{id}")
-    public Customer retriveCustomer(@PathVariable int id){
+    public EntityModel<Customer> retriveCustomer(@PathVariable int id){
         Customer oneCustomer = service.findOne(id);
         if ( oneCustomer == null)
         {
             throw new CustomerNotFoundException("id-"+ id);
         }
-        return oneCustomer;
+//         all Customers , SERVER_PATH + '/Customers'
+//        change method to retrieveAllCustomers
+        EntityModel<Customer> customerResource = EntityModel.of(oneCustomer);
+
+        Link allCustomersLink = WebMvcLinkBuilder.linkTo(
+                WebMvcLinkBuilder.methodOn(this.getClass()).retriveAllCustomers())
+                .withRel("All_Customers");
+
+        customerResource.add(allCustomersLink);
+
+        //HATEOAS
+
+
+        return customerResource;
     }
 
 //     Post - CREATED status
