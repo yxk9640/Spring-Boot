@@ -1,5 +1,6 @@
 package com.restv2.rest_v2.customer;
 
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.hateoas.Link;
 
 import jakarta.validation.Valid;

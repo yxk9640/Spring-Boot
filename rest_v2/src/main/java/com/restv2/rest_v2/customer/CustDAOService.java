@@ -15,9 +15,9 @@ public class CustDAOService {
     private static int custCount = 3;
 
     static {
-        customers.add(new Customer(1, "Harish", new Date()));
-        customers.add(new Customer(2, "Yogesh", new Date()));
-        customers.add(new Customer(3, "Rish", new Date()));
+        customers.add(new Customer(1, "Harish", new Date(), "pharish"));
+        customers.add(new Customer(2, "Yogesh", new Date(),"pyogesh"));
+        customers.add(new Customer(3, "Rish", new Date(), "prish"));
     }
 
     // primary key done by backend
