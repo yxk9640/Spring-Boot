@@ -1,10 +1,8 @@
 package com.restv2.rest_v2.customer;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
