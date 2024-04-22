@@ -3,6 +3,9 @@ package com.restv2.rest_v2.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -10,7 +13,11 @@ import java.util.Date;
 
 @JsonIgnoreProperties(value = {"pass"})
 @Schema(description = "Display details about Customer" )
+@Entity
 public class Customer {
+
+    @Id
+    @GeneratedValue
     private Integer id;
     @Size(min = 2, message = "Name should be more than 2 characters")
     @Schema(description = "Name should be more than 2 characters")
