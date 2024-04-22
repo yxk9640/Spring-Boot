@@ -7,9 +7,11 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+// Also called as Repository
 @Component
-public class CustDAOService {
-    //Initially store Cust data as ArrayList
+
+public class LocalCustDAOService {
+    //Initially store Cust data as ArrayList Locally
 
     private static List<Customer> customers = new ArrayList<>();
     private static int custCount = 3;
@@ -25,7 +27,8 @@ public class CustDAOService {
 
     // FindAll()
     public  List<Customer> findAll(){
-        return customers;
+
+        return customers; //local cache
     }
 
     // save cust <- customer
