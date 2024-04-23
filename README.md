@@ -10,9 +10,9 @@ This section gives an intro of projects(e.g., REST API, full-stack app) in dedic
 
 - `rest_v1`
 	- Very Basic starter project about REST API.
-- `rest_v2`:
+- `rest_v2`
 	-  *Decent project built using Spring Boot, incorporates features like Dispatcher Servlets, DAO/Repository for data access, REST Services, Exception Handling, Validation, HATEOAS, Internationalization, Content Negotiation, Swagger documentation, Filter API, Versioning, Security, JPA, Relationship Definitions, Error Handling, Best Practices, and Application Flow.*
-- `learnKafka:` 
+- `learnKafka` 
 	- Basic Starter project Kafka.
 
 
