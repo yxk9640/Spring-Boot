@@ -2,9 +2,28 @@
 
 ## Overview
 
-This project is developed using Spring Boot framework and incorporates various features and best practices to build robust and scalable web applications.
+This project is developed to have hands-on experience on using Spring Boot framework and incorporates various features and best practices to build robust and scalable web applications.
 
-## Implemented Tasks
+Further refer to Reference Notes.
+
+## Implementation
+
+###Idea
+Customer will have orders
+
+- Retrieve all Customers
+- Create a customer
+- Retrieve one Customer
+- Delete a Customer
+- GET /Custoemrs
+- POST /customers
+- GET /customers/{id} -> /customers/1
+- DELETE /customers/{id} -> /customers/1
+
+- Retrieve all posts for a customer - GET /customers/{id}/posts
+- Create a posts for a customer - POST /customers/{id}/posts
+- Retrieve details of a post - GET /customers/ {id}/posts/{post_id}
+
 
 ### Dispatcher Servlets
 
@@ -23,7 +42,7 @@ This project is developed using Spring Boot framework and incorporates various f
 ### Exception Handling
 
 - Customizes exception handling to enhance user experience.
-- Utilizes 404 for user not found instead of the default 401.
+- Utilizes 404 for customer not found instead of the default 401.
 
 ### Validation
 
