@@ -8,7 +8,7 @@ Further refer to Reference Notes.
 
 ## Implementation
 
-###Idea
+### Idea
 Customer will have orders
 
 - Retrieve all Customers
