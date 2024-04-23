@@ -16,15 +16,6 @@ This section gives an intro of projects(e.g., REST API, full-stack app) in dedic
 	- Basic Starter project Kafka.
 
 
-### **Setup:**
-
-1. Go to the project folder download `.zip`.
-2. Install JDK.
-3. Follow project-specific instructions (if any).
-
 **Note: Learning Resources Mentioned in corresponding project.**
-
-
-
 
 *Happy coding!*
