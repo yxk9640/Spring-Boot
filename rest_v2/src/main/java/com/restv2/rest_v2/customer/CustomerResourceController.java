@@ -1,6 +1,5 @@
 package com.restv2.rest_v2.customer;
 
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.hateoas.Link;
 
 import jakarta.validation.Valid;
@@ -17,9 +16,11 @@ import java.util.List;
 
 @RestController
 public class CustomerResourceController {
+// Uses Local DAOService where data of customers
+// is store in Arraylist
 
     @Autowired
-    private CustDAOService service;
+    private LocalCustDAOService service;
 
     @GetMapping("/customers")
     public List<Customer> retriveAllCustomers(){
