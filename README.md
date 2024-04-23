@@ -6,7 +6,7 @@ This repo is playground for learning Spring, Java, and full-stack development th
 
 ## **Folders and Projects:**
 
-This section gives a 1 line intro of projects in the repo. Projects(e.g., REST API, full-stack app) in dedicated folders specified with READMEs:
+This section gives an intro of projects(e.g., REST API, full-stack app) in dedicated folders of repo specified with READMEs:
 
 - `rest_v1`
 	- Very Basic starter project about REST API.
