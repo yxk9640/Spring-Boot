@@ -14,38 +14,58 @@ app.use(cors());
 app.get("/photos", async (req, res) => {
 	const albumId = req.query.albumId
 	console.log('Loading photos...');
-	//check in cache before sending request
-	try 
-	{
-		const photosCache = await redisClient.get('photos');
-		console.log('Loading photos from Cache...');
-		if(photosCache != null){
-			console.log("Cache Hit!");
-			return res.json(JSON.parse(photosCache));
-		}
-		else{
-			console.log("Cache Miss! \nRequesting the server.");
-			// main operations 
-			const { data } = await axios.get(
-				"https://jsonplaceholder.typicode.com/photos",
-				{ params : { albumId } } //pass params to limit the results
-			);
-			await redisClient.setEx("photos", 3600, JSON.stringify(data));
-			res.json(data);
-		}
-	}catch(error) {console.log("error in get request of cache, Issue in redis connections.")};
+	const photos = await getOrSetCache(`photos?albumId=${albumId}`, async () => {
+		console.log("Requesting the server.");
+		const { data } = await axios.get(
+			"https://jsonplaceholder.typicode.com/photos",
+			{ params : { albumId } } //pass params to limit the results
+		)
+		return data;
+	});
+	res.json(photos);
+});
+
+
+app.get("/photos/:id", async(req, res) => {
+	console.log('Loading photo...');
+
+	const photo = await getOrSetCache(`photos:${req.params.id}`, async () => {
+		console.log("Requesting the server.");
+		const { data } = await axios.get(
+			`https://jsonplaceholder.typicode.com/photos/${req.params.id}`
+		)
+		return data;
+	});
+
+	res.json(photo);
 	
 
+	
 });
 
+function getOrSetCache(key, cb){
+	//check in cache before sending request
+		return new Promise(async (resolve, reject) => {
+			try  // reject if no redis
+			{
 
-app.get("/photo/:id", async(req, res) => {
-	console.log('Loading photo...');
-	const { data } = await axios.get(
-		`https://jsonplaceholder.typicode.com/photos/${req.params.id}`
-	)
+				const data = await redisClient.get(key);
+				
+				if(data != null){
+					console.log("Cache Hit Success! ")
+					return resolve(JSON.parse(data)); 
+				}//hit
+				console.log("Cache Miss!");
+				const freshData = await cb();
+				console.log("Store in Cache!");
+				await redisClient.setEx(key, 3600, JSON.stringify(freshData));
+				resolve(freshData);
+				
 
-	res.json(data)
-});
+			} catch (err) {reject(err); }
+		
+	})
+}
+
 
 app.listen(3000);
