@@ -1,5 +1,17 @@
 # Microservices
 
+When you get a project to add in this folder change the current folder structure.
+
+current:
+
+	-|imagesMicroservice
+	
+update:
+	
+	-|MicroServices
+	--|images
+	--|version-project
+
 ## Intro 
 The services which use to handle whole application is revised to manage small/micro tasks of the application.
 These services should be REST enabled, small and well choosen deployable boundaries and have ![multiple instances(cloud enabled).](./imagesMicroservices/cloud_instance.png)
