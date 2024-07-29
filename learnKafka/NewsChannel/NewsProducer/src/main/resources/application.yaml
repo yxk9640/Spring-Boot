@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: KafkaMicroServices
+  threads:
+    virtual:
+      enabled: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: root
+#    mongodb:
+#      uri: mongodb://localhost:27017/mydatabase
+  kafka:
+    bootstrap-servers: localhost:29092
+
+
+logging:
+  level:
+    org.springframework.web: "debug"
+    org.hibernate: "error"
